@@ -72,7 +72,7 @@ def transcribe_in_thread(file_path):
         duration = end - start
         status_label.config(text=f"Transcription completed in {duration}.\nSRT: {srt_output_path}\nDOCX: {doc_output_path}")
         messagebox.showinfo("Status Update", "Transcription Finished")
-        open_directory_in_finder(doc_output_path)
+        open_directory_in_finder(doc_output_path.rsplit('/', 1)[0])
     except Exception as e:
         status_label.config(text=f"Error: {e}")
 
